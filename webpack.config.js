@@ -45,14 +45,14 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|jpeg|ico)$/,
-                type: 'asser/resource',
+                type: 'asset/resource',
                 generator: {
                     filename: 'media/[name].[hash][ext]'
                 },
             },
             {
                 test: /\.svg$/i,
-                type: 'asser/resource',
+                type: 'asset/resource',
                 generator: {
                     filename: 'media/[name][ext][query]'
                 },
