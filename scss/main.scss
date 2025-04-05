@@ -91,12 +91,12 @@ $grey_color: #929292;
         justify-content: center;
         &__card{
             width: 25%;
-        }
-        &:nth-child(2n){
-            margin-right: 5%;
-        }
-        &:nth-child(3n){
-            margin-right: 0;
+            &:nth-child(2n){
+                margin-right: 5%;
+            }
+            &:nth-child(3n){
+                margin-right: 0;
+            }
         }
     }
 }
