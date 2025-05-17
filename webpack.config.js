@@ -23,7 +23,7 @@ module.exports = {
         new PugPlugin({
           pretty: devMode,
           js: {
-            filename: '[name].[contenthash].js',
+            filename: "[name].[contenthash].js",
           },
           css: {
             filename: '[name].[contenthash].css',
@@ -56,7 +56,7 @@ module.exports = {
                 generator: {
                     filename: 'media/[name][ext][query]'
                 },
-            },
+            }
         ],
     },
 }

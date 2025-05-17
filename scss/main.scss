@@ -91,6 +91,7 @@ $grey_color: #929292;
         justify-content: center;
         &__card{
             width: 25%;
+            
             &:nth-child(2n){
                 margin-right: 5%;
             }
