@@ -6,9 +6,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const widthSite = document.documentElement.clientWidth;
     const heightSite = document.documentElement.clientHeight;
 
+    const burgerDiv = document.querySelector('.header__top .header__burger');
+    const logo = document.querySelector('.header__top .header__logo');
+    const menuDiv = document.querySelector('.header__mobile');
+    const crossButton = document.querySelector('.header__close-btn');
+
     iconField.addEventListener('click', function() {
         inputField.classList.toggle('active');
     });
+
+    function closeBurger(){
+        menuDiv.classList.remove('active');
+        logo.classList.remove('active');
+    }
+
+    function openBurger(){
+        menuDiv.classList.add('active');
+        logo.classList.add('active');
+        document.addEventListener('click', (e) => {
+            const withinMenu = e.composedPath().includes(menuDiv);
+            const withinBurger = e.composedPath().includes(burgerDiv);
+         
+            if ( !withinMenu && !withinBurger) {
+                closeBurger();
+            }
+        })
+    };
+
+    crossButton.addEventListener('click', closeBurger);
+
+    burgerDiv.addEventListener('click', openBurger);
 
     if (widthSite >= 1024){
         let lastscroll = 0;
