@@ -1,7 +1,7 @@
 mixin topic-card(type, topic, image)
   .main__card
     .main__card-img
-      img.main__card-picture(src=require(`../${image}`), alt="Картинка")
+      img.main__card-picture(src=`${image}`, alt="Картинка")
     .main__card-type=type
     .main__card-topic=topic
     .main__card-user
@@ -21,5 +21,3 @@ main
       +topic-card("Summer Stile", "Ты видишь крутые луки для похода в кафе с друзьями", 'media/png/7.png')
       +topic-card("Summer Sea Stile", "Ты видишь девушку купающуюся в море на закате", 'media/png/8.png')
       +topic-card("Party Stile", "Ты видишь круто танцующих людей в клубе вечером", 'media/png/9.png')
-
-script(src="../index.js")
