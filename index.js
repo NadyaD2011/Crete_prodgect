@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputField = document.querySelector('.header__text-field');
     const iconField = document.querySelector('.header__search');
     
-    const headerDiv = document.querySelector('.header');
+    const header = document.querySelector('.header');
     const widthSite = document.documentElement.clientWidth;
     const heightSite = document.documentElement.clientHeight;
 
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logo = document.querySelector('.header__top .header__logo');
     const menuDiv = document.querySelector('.header__mobile');
     const crossButton = document.querySelector('.header__close-btn');
+    const body = document.querySelector('body');
 
     iconField.addEventListener('click', function() {
         inputField.classList.toggle('active');
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function openBurger(){
         menuDiv.classList.add('active');
         logo.classList.add('active');
+        body.classList.add('active');
         document.addEventListener('click', (e) => {
             const withinMenu = e.composedPath().includes(menuDiv);
             const withinBurger = e.composedPath().includes(burgerDiv);
@@ -37,21 +39,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     burgerDiv.addEventListener('click', openBurger);
 
+
     if (widthSite >= 1024){
         let lastscroll = 0;
+        
         function changeHeader(){
-            let pageY = window.pageYOffset;
+            let top = document.documentElement.scrollTop;
 
-            if (lastscroll > pageY){
-                headerDiv.style.top = "0px";
+            if (lastscroll > top){
+                header.style.top = "0px";
             }
-            else if (pageY >= 200){
-                headerDiv.style.top = `${-heightSite}px`;
+            else if (window.pageYOffset > 200){
+                header.style.top = `-${heightSite}px`;
             }
 
-            lastscroll = pageY 
+            lastscroll = top;
         }
 
-        window.addEventListener('scroll', changeHeader);
+        window.onscroll = changeHeader;
     }
 })
